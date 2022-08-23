@@ -1,0 +1,21 @@
+<div class='container'>
+  <h1>My Tasks</h1>
+    <br>
+
+  <form action="">
+    <% @tasks.each do |task| %>
+      <input type="checkbox" id="<%task.id%>" name="<%task.title%>" value="<%task.title%>">
+
+      <%# attempting to link each label to show page%>
+      <%= link_to show_path(task) do %>
+        <label for="<%task.title%>"><%= task.title %></label>
+      <% end %>
+      <%= link_to "Delete",
+      delete_path(task),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <br>
+    <% end %>
+  </form>
+  <hr>
+  <%= link_to "+ Add a new task", new_path(@task) %>
+</div>

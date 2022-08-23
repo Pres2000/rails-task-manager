@@ -1,0 +1,10 @@
+<div class="container">
+  <h1><%= @task.title %></h1>
+  <div class="container border rounded pt-3">
+    <p><%= @task.details %></p>
+  </div>
+  <br>
+  <%= @done ? "This task is done" : "This task is not done" %>
+  <hr>
+  <%= link_to "Back to list", tasks_path(@task)%>
+</div>
